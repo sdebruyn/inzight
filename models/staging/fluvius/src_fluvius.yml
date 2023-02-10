@@ -1,0 +1,89 @@
+version: 2
+
+sources:
+  - name: fluvius
+    meta:
+      external_location: "assets/fluvius.csv"
+    tables:
+      - name: verbruik
+        description: Energy usage data coming from Fluvius, by quarter
+        columns:
+          - name: van datum
+            type: date
+            description: Start date of the quarter
+            quote: true
+            tests:
+              - not_null
+              - dbt_expectations.expect_column_values_to_be_increasing:
+                  strictly: false
+          - name: van tijdstip
+            type: time
+            description: Start time of the quarter
+            quote: true
+            tests:
+              - not_null
+          - name: tot datum
+            type: date
+            description: End date of the quarter
+            quote: true
+            tests:
+              - not_null
+              - dbt_expectations.expect_column_values_to_be_increasing:
+                  strictly: false
+          - name: tot tijdstip
+            type: time
+            description: End time of the quarter
+            quote: true
+            tests:
+              - not_null
+          - name: ean
+            type: string
+            description: EAN code of the meter
+            tests:
+              - not_null
+              - dbt_expectations.expect_column_distinct_count_to_equal:
+                  value: 1
+          - name: meter
+            type: string
+            description: ID of the meter
+            tests:
+              - not_null
+              - dbt_expectations.expect_column_distinct_count_to_equal:
+                  value: 1
+          - name: metertype
+            type: string
+            description: Type of the meter
+            tests:
+              - not_null
+          - name: register
+            type: string
+            description: Name of the register
+            tests:
+              - not_null
+              - accepted_values:
+                  values:
+                    - Afname Nacht
+                    - Afname Dag
+                    - Injectie Nacht
+                    - Injectie Dag
+          - name: volume
+            type: float
+            description: Volume of the register
+          - name: eenheid
+            type: string
+            description: Unit of the volume
+            tests:
+              - not_null
+              - accepted_values:
+                  values:
+                    - kWh
+          - name: validatiestatus
+            type: string
+            description: Validation status of the data
+            tests:
+              - not_null
+              - accepted_values:
+                  values:
+                    - Gevalideerd
+                    - Geen verbruik
+                    - Geschat
