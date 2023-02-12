@@ -4,6 +4,10 @@ A simple data project using [dbt](https://getdbt.com), [DuckDB](https://duckdb.o
 
 ## Usage
 
+### Available models & documentation
+
+The dbt documentation is available at [https://sdebruyn.github.io/inzight](https://sdebruyn.github.io/inzight).
+
 ### Requirements
 
 * Python 3.8 or newer
@@ -38,9 +42,7 @@ My column names are in Dutch, I have no idea what you get if you have a differen
 1. Make sure your source data has been added as a file named `assets/fluvius.csv`
 1. Run `dbt deps` to install the dbt package dependencies
 1. Run `dbt build` to create all models
-1. Run `dbt docs generate` to generate the documentation
 1. Run `docker compose up -d` to start Superset
-1. Run `dbt docs serve` to serve the dbt documentation at `http://localhost:8080`
 1. Open `http://localhost:8088` in your browser to go to Superset
 1. Log in with the default credentials: `admin` / `admin`
 1. Create a new database (*Settings > Database Connections*) with the following settings:
@@ -53,7 +55,7 @@ My column names are in Dutch, I have no idea what you get if you have a differen
 
 ## Note
 
-It's a work in progress, do whatever you want with it. Contributions are welcome!
+It's (like most hobby projects) a never-ending work in progress. Contributions are welcome!
 
 ## License
 
