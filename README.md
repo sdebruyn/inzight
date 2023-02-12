@@ -12,9 +12,8 @@ The dbt documentation is available at [https://sdebruyn.github.io/inzight](https
 
 ### Included dashboards
 
-![Quick in⚡️ights](visuals/home.png | width=300)
-
-![Capacity tariff](visuals/capacity_tariff.png | width=300)
+<img src="visuals/home.png" width="350" alt="Quick in⚡️ights" />
+<img src="visuals/capacity_tariff.png" width="350" alt="Capacity tariff" />
 
 ### Requirements
 
