@@ -1,0 +1,34 @@
+version: 2
+
+models:
+  - name: int_electricity
+    description: Electricity usage data coming from Fluvius, by quarter
+    columns:
+      - name: from_timestamp
+        description: Start of the quarter
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_increasing:
+              strictly: false
+      - name: to_timestamp
+        description: End of the quarter
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_increasing:
+              strictly: false
+      - name: tariff
+        description: Tariff used during the quarter
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - peak
+                - offpeak
+      - name: usage
+        description: Electricity usage in kWh
+      - name: injection
+        description: Electricity injection in kWh
+      - name: validated
+        description: Whether the data has been validated by Fluvius (bool)
+        tests:
+          - not_null
