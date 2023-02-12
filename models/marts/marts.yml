@@ -44,8 +44,12 @@ models:
     columns:
       - name: usage
         description: Total electricity usage in kWh
+        tests:
+          - dbt_utils.at_least_one
       - name: injection
         description: Total electricity injection in kWh
+        tests:
+          - dbt_utils.at_least_one
       - name: validated
         description: Whether the data has been validated by Fluvius (bool)
         tests:

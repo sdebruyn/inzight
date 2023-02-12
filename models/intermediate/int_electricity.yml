@@ -26,8 +26,12 @@ models:
                 - offpeak
       - name: usage
         description: Electricity usage in kWh
+        tests:
+          - dbt_utils.at_least_one
       - name: injection
         description: Electricity injection in kWh
+        tests:
+          - dbt_utils.at_least_one
       - name: validated
         description: Whether the data has been validated by Fluvius (bool)
         tests:

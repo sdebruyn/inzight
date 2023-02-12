@@ -60,6 +60,8 @@ sources:
                     - Injectie Dag
           - name: volume
             description: Volume of the register
+            tests:
+              - dbt_utils.at_least_one
           - name: eenheid
             description: Unit of the volume
             tests:
