@@ -37,6 +37,9 @@ jobs:
         pip freeze | grep duckdb
         dbt debug
 
+    - name: dbt deps
+      run: dbt deps
+
     - name: Build models
       run: dbt build
 
