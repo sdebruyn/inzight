@@ -1,14 +1,5 @@
-{% set min_date_query %}
-  select min(from_date) from {{ ref('stg_fluvius') }}
-{% endset %}
-{% set max_date_query %}
-  select max(to_date) from {{ ref('stg_fluvius') }}
-{% endset %}
-{% set min_date_val = dbt_utils.get_single_value(min_date_query) %}
-{% set max_date_val = dbt_utils.get_single_value(max_date_query) %}
-
 with date_dim as (
-  {{ dbt_date.get_date_dimension(min_date_val, max_date_val) }}
+  {{ dbt_date.get_date_dimension('2015-01-01', '2030-01-01') }}
 ),
 
 holidays as (
