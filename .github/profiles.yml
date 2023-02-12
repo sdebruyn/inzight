@@ -1,0 +1,8 @@
+inzight:
+  outputs:
+    dev:
+      type: duckdb
+      path: /tmp/inzight.duckdb
+      threads: 1
+      external_root: "{{ env_var('GITHUB_WORKSPACE') }}/assets"
+  target: dev

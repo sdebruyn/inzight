@@ -1,9 +1,3 @@
-{{
-  config(
-    materialized = 'table',
-    )
-}}
-
 {% set min_date_query %}
   select min(from_date) from {{ ref('stg_fluvius') }}
 {% endset %}
