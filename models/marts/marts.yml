@@ -44,7 +44,9 @@ models:
           - not_null
 
   - name: mrt_validated
-    description: Analyze your which data was estimated and which data was validated
+    description: |
+      Analyze which data was estimated and which data was validated.
+      Probably not the most useful model, but maybe it's something to keep an eye on.
     columns:
       - name: usage
         description: Total electricity usage in kWh
