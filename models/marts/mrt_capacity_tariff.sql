@@ -28,8 +28,8 @@ final as (
         components.month as month,
         components.year as year,
         components.from_timestamp as month_peak_moment,
-        month_peaks.month_peak as month_peak,
-        avg(month_peaks.month_peak) over (rows between 11 preceding and current row) as month_peak_avg
+        month_peaks.month_peak as month_peak_value,
+        avg(month_peaks.month_peak) over (rows between 11 preceding and current row) as month_peak_12month_avg
     from components
     join month_peaks
     on components.month = month_peaks.month

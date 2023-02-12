@@ -18,5 +18,7 @@ clean-targets:
 
 models:
   inzight:
+    staging:
+      +materialized: table
     marts:
       +materialized: table

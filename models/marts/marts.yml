@@ -1,0 +1,55 @@
+version: 2
+
+models:
+  - name: mrt_capacity_tariff
+    description: Analyze your peak energy determining your capacity tariff
+    columns:
+      - name: month
+        description: Month of the year
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - 1
+                - 2
+                - 3
+                - 4
+                - 5
+                - 6
+                - 7
+                - 8
+                - 9
+                - 10
+                - 11
+                - 12
+      - name: year
+        description: Year
+        tests:
+          - not_null
+      - name: month_peak_moment
+        description: Peak moment of the month
+        tests:
+          - not_null
+      - name: month_peak_value
+        description: Peak value of the month
+        tests:
+          - not_null
+      - name: month_peak_12month_avg
+        description: Average of the last 12 peak values including this month (used for your capacity tariff)
+        tests:
+          - not_null
+
+  - name: mrt_usage
+    description: Analyze your energy usage (WIP)
+
+  - name: mrt_validated
+    description: Analyze your which data was estimated and which data was validated
+    columns:
+      - name: usage
+        description: Total electricity usage in kWh
+      - name: injection
+        description: Total electricity injection in kWh
+      - name: validated
+        description: Whether the data has been validated by Fluvius (bool)
+        tests:
+          - not_null

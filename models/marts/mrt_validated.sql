@@ -9,9 +9,10 @@ with usage_data as (
 final as (
     select
         sum(usage) as usage,
-        sum(injection) as injection
+        sum(injection) as injection,
+        validated
     from usage_data
-    where validated = false
+    group by validated
 )
 
 select *
