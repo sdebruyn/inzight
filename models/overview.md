@@ -6,6 +6,6 @@ Welcome to the auto-generated documentation for [In⚡️ight](https://github.co
 
 #### Available datasets
 
-The available datasets can be found in the marts folder in the project. These are materialized as parquet files in the assets folder.
+The available datasets can be found in the marts folder in the project.
 
 {% enddocs %}

@@ -15,4 +15,4 @@ dispatch:
 models:
   inzight:
     marts:
-      +materialized: external
+      +materialized: table

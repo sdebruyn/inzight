@@ -42,6 +42,22 @@ models:
         description: Average of the last 12 peak values including this month (used for your capacity tariff)
         tests:
           - not_null
+      - name: month_name_short
+        description: Short name of the month
+        tests:
+          - not_null
+      - name: month_name
+        description: Name of the month
+        tests:
+          - not_null
+      - name: month_start_date
+        description: Start date of the month
+        tests:
+          - not_null
+      - name: pct_change
+        description: Percentage change of the peak value compared to previous month
+        tests:
+          - dbt_utils.at_least_one
 
   - name: mrt_validated
     description: |

@@ -89,3 +89,8 @@ $RECYCLE.BIN/
 
 assets/*
 !assets/.gitkeep
+*.duckdb
+.evidence/template
+.svelte-kit
+build
+node_modules
