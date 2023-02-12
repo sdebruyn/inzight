@@ -4,17 +4,13 @@ config-version: 2
 
 profile: 'inzight'
 
-model-paths: ["models"]
-analysis-paths: ["analyses"]
-test-paths: ["tests"]
-seed-paths: ["seeds"]
-macro-paths: ["macros"]
-snapshot-paths: ["snapshots"]
-
-target-path: "target"
-clean-targets:
-  - "target"
-  - "dbt_packages"
+dispatch:
+  - macro_namespace: dbt_utils
+    search_order: [dbt_duckdb_utils, dbt_utils]
+  - macro_namespace: dbt_expectations
+    search_order: [dbt_duckdb_utils, dbt_expectations]
+  - macro_namespace: dbt_date
+    search_order: [dbt_duckdb_utils, dbt_date]
 
 models:
   inzight:

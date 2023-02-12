@@ -27,7 +27,8 @@ final as (
     select
         components.month as month,
         components.year as year,
-        components.from_timestamp as month_peak_moment,
+        components.from_timestamp as month_peak_timestamp,
+        components.from_timestamp::date as month_peak_date,
         month_peaks.month_peak as month_peak_value,
         avg(month_peaks.month_peak) over (rows between 11 preceding and current row) as month_peak_12month_avg
     from components

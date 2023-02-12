@@ -26,8 +26,12 @@ models:
         description: Year
         tests:
           - not_null
-      - name: month_peak_moment
+      - name: month_peak_timestamp
         description: Peak moment of the month
+        tests:
+          - not_null
+      - name: month_peak_date
+        description: Peak moment of the month as date
         tests:
           - not_null
       - name: month_peak_value

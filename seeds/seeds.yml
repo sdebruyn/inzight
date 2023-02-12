@@ -1,0 +1,17 @@
+version: 2
+
+seeds:
+  - name: be_holidays
+    description: List of official holidays in Belgium
+    config:
+      quote_columns: true
+    columns:
+      - name: Feestdag
+        description: Name of the holiday (Dutch)
+        tests:
+          - not_null
+      - name: Datum
+        description: Date of the holiday as string
+        tests:
+          - not_null
+          - unique
