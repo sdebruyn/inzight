@@ -39,9 +39,6 @@ models:
         tests:
           - not_null
 
-  - name: mrt_usage
-    description: Analyze your energy usage (WIP)
-
   - name: mrt_validated
     description: Analyze your which data was estimated and which data was validated
     columns:
