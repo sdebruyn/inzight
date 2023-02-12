@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 env:
-  DBT_PROFILES_DIR: "$GITHUB_WORKSPACE/.github"
+  DBT_PROFILES_DIR: "${{ github.workspace }}/.github"
 
 jobs:
   build:
