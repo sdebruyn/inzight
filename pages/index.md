@@ -4,7 +4,7 @@ A simple data project using [dbt](https://getdbt.com), [DuckDB](https://duckdb.o
 
 Navigate through the menu on the left to analyze your electricity data.
 
-## Quick insights
+## Quick in⚡️ights
 
 ```mrt_capacity_tariff_current
 select

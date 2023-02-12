@@ -4,11 +4,17 @@ A simple data project using [dbt](https://getdbt.com), [DuckDB](https://duckdb.o
 
 Thanks to [Jacob Matson](https://github.com/matsonj) for [his blog post](https://www.dataduel.co/modern-data-stack-in-a-box-with-duckdb/) that inspired all of this.
 
-## Usage
+## Available in⚡️ights
 
 ### Available models & documentation
 
 The dbt documentation is available at [https://sdebruyn.github.io/inzight](https://sdebruyn.github.io/inzight).
+
+### Included dashboards
+
+![Quick in⚡️ights](visuals/home.png)
+
+![Capacity tariff](visuals/capacity_tariff.png)
 
 ### Requirements
 
