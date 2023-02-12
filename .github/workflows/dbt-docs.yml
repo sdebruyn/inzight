@@ -4,9 +4,16 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
 
 env:
   DBT_PROFILES_DIR: "${{ github.workspace }}/.github"
@@ -18,6 +25,9 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
+
+    - name: Setup Pages
+      uses: actions/configure-pages@v3
 
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -46,7 +56,11 @@ jobs:
     - name: Generate dbt docs
       run: dbt docs generate
 
-    - name: Deploy 🚀
-      uses: JamesIves/github-pages-deploy-action@v4
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v1
       with:
-        folder: target
+        path: target
+
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v1
