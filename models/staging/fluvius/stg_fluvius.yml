@@ -30,10 +30,10 @@ models:
           - not_null
           - accepted_values:
               values:
-                - Afname Nacht
-                - Afname Dag
-                - Injectie Nacht
-                - Injectie Dag
+                - afname nacht
+                - afname dag
+                - injectie nacht
+                - injectie dag
       - name: volume_in_kwh
         description: Volume of the register in kWh
       - name: validation_status_txt
