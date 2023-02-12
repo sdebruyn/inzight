@@ -2,7 +2,7 @@
 
 A simple data project using [dbt](https://getdbt.com), [DuckDB](https://duckdb.org/) and [Evidence](https://evidence.dev/) to analyse your electricity data from Belgian smart meters.
 
-Thanks to [Jacob Matson](https://github.com/matsonj) for [his blog post](https://www.dataduel.co/modern-data-stack-in-a-box-with-duckdb/) that inspired all of this.
+Thanks to [Jacob Matson](https://github.com/matsonj) for [his blog post](https://www.dataduel.co/modern-data-stack-in-a-box-with-duckdb/) which inspired all of this.
 
 ## Available in⚡️ights
 
