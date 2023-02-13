@@ -1,4 +1,15 @@
 {
   "version": "1.0",
-  "customFormats": []
+  "customFormats": [
+    {
+      "formatTag": "kwh0",
+      "formatCode": "#,##0\" kWh\"",
+      "valueType": "number"
+    },
+    {
+      "formatTag": "kwh3",
+      "formatCode": "#,##0.000\" kWh\"",
+      "valueType": "number"
+    }
+  ]
 }
