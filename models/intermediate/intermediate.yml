@@ -30,6 +30,24 @@ models:
                 - Oct
                 - Nov
                 - Dec
+      - name: month_name
+        description: The name of the month
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - January
+                - February
+                - March
+                - April
+                - May
+                - June
+                - July
+                - August
+                - September
+                - October
+                - November
+                - December
       - name: day_of_month
         description: The day of the month
         tests:
@@ -51,6 +69,21 @@ models:
           - dbt_expectations.expect_column_values_to_be_between:
               min_value: 0
               max_value: 53
+      - name: iso_week_of_year
+        description: The ISO week of the year
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 1
+              max_value: 53
+      - name: month_of_year
+        description: The month of the year
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 1
+              max_value: 12
+
 
   - name: dim_time
     description: A dimension table of time
