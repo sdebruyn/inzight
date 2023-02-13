@@ -8,7 +8,7 @@
     },
     {
       "formatTag": "kwh3",
-      "formatCode": "#,##0.000\" kWh\"",
+      "formatCode": "# ##0.0##\" kWh\"",
       "valueType": "number"
     },
     {
