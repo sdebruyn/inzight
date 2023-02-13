@@ -38,6 +38,10 @@ with_avg as (
         d.from_timestamp as month_peak_timestamp,
         d.to_timestamp as month_peak_timestamp_end,
         d.from_timestamp::date as month_peak_date,
+        d.day_of_week_name as month_peak_day_of_week_name,
+        d.day_of_month as month_peak_day_of_month,
+        d.day_type as month_peak_day_type,
+        d.is_holiday as month_peak_is_holiday,
         p.month_peak as month_peak_value,
         avg(p.month_peak) over (rows between 11 preceding and current row) as month_peak_12month_avg,
     from components d

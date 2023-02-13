@@ -38,6 +38,26 @@ models:
         description: Peak moment of the month as date
         tests:
           - not_null
+      - name: month_peak_day_of_week_name
+        description: Name of the day of the week of the peak moment of the month
+        tests:
+          - not_null
+      - name: month_peak_day_of_month
+        description: Day of the month of the peak moment of the month
+        tests:
+          - not_null
+      - name: month_peak_day_type
+        description: Type of the day of the peak moment of the month
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - weekday
+                - weekend
+      - name: month_peak_is_holiday
+        description: Whether the peak moment of the month is a holiday
+        tests:
+          - not_null
       - name: month_peak_value
         description: Peak value of the month
         tests:

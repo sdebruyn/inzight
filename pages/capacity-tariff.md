@@ -7,7 +7,9 @@ select
     month_name,
     month_name_short,
     month_peak_12month_avg as month_peak_12month_avg_kwh3,
-    month_start_date
+    month_start_date,
+    month_peak_timestamp as month_peak_timestamp_hm,
+    month_peak_timestamp_end as month_peak_timestamp_end_hm
 from mrt_capacity_tariff
 ```
 
@@ -23,14 +25,16 @@ select
     *
 from ${mrt_capacity_tariff}
 order by month_start_date desc
-limit 4
+limit 6
 ```
 
-The current (<Value data={mrt_capacity_tariff_last_months} column=month_name_short/>) monthly peak is **<Value data={mrt_capacity_tariff_last_months} column=month_peak_value_kwh3/>**. The change over last month (<Value data={mrt_capacity_tariff_last_months} column=month_name_short row=1/>) is **<Value data={mrt_capacity_tariff_last_months} column=pct_change_pct1/>** as we then had <Value data={mrt_capacity_tariff_last_months} column=month_peak_value_kwh3 row=1/>.
+The current (<Value data={mrt_capacity_tariff_last_months} column=month_name_short/>) monthly peak is **<Value data={mrt_capacity_tariff_last_months} column=month_peak_value_kwh3/>**.
+
+The change over last month (<Value data={mrt_capacity_tariff_last_months} column=month_name_short row=1/>) is **<Value data={mrt_capacity_tariff_last_months} column=pct_change_pct1/>** as we then had <Value data={mrt_capacity_tariff_last_months} column=month_peak_value_kwh3 row=1/>.
 
  The average monthly peak for the last 12 months is **<Value data={mrt_capacity_tariff_last_months} column=month_peak_12month_avg_kwh3/>**.
 
- Here are the monthly peaks for the last 4 months:
+ Here are the monthly peaks for the last 6 months:
 
 {#each mrt_capacity_tariff_last_months as month_row}
 
