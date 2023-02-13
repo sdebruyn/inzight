@@ -398,6 +398,11 @@ models:
         tests:
           - not_null
           - dbt_expectations.expect_column_values_to_be_increasing
+      - name: prior_year_over_year_date_day
+        description: 364 days before the date_day
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_increasing
 
   - name: fct_electricity
     description: Electricity usage data coming from Fluvius, by quarter
