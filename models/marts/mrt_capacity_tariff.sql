@@ -13,10 +13,13 @@ components as (
         u.from_timestamp,
         u.to_timestamp,
         u.usage * 4 as quarter_power,
-        dd.*
+        dd.*,
+        tt.*
     from usage_data u
     left join {{ ref('dim_dates') }} dd
     on u.from_timestamp::date = dd.date_day
+    left join {{ ref('dim_time') }} tt
+    on u.from_timestamp::time = tt.moment
 ),
 
 month_peaks as (
@@ -43,6 +46,7 @@ with_avg as (
         d.day_type as month_peak_day_type,
         d.is_holiday as month_peak_is_holiday,
         p.month_peak as month_peak_value,
+        d.part_of_day as month_peak_part_of_day,
         avg(p.month_peak) over (rows between 11 preceding and current row) as month_peak_12month_avg,
     from components d
     join month_peaks p

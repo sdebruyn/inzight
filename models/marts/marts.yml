@@ -8,20 +8,9 @@ models:
         description: Month of the year
         tests:
           - not_null
-          - accepted_values:
-              values:
-                - 1
-                - 2
-                - 3
-                - 4
-                - 5
-                - 6
-                - 7
-                - 8
-                - 9
-                - 10
-                - 11
-                - 12
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 1
+              max_value: 12
       - name: year
         description: Year
         tests:
@@ -42,10 +31,22 @@ models:
         description: Name of the day of the week of the peak moment of the month
         tests:
           - not_null
+          - accepted_values:
+              values:
+                - Monday
+                - Tuesday
+                - Wednesday
+                - Thursday
+                - Friday
+                - Saturday
+                - Sunday
       - name: month_peak_day_of_month
         description: Day of the month of the peak moment of the month
         tests:
           - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 1
+              max_value: 31
       - name: month_peak_day_type
         description: Type of the day of the peak moment of the month
         tests:
@@ -58,6 +59,16 @@ models:
         description: Whether the peak moment of the month is a holiday
         tests:
           - not_null
+      - name: month_peak_part_of_day
+        description: Part of the day of the peak moment of the month
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - morning
+                - afternoon
+                - evening
+                - night
       - name: month_peak_value
         description: Peak value of the month
         tests:

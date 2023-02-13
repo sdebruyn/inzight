@@ -12,6 +12,45 @@ models:
               values:
                 - weekend
                 - weekday
+      - name: month_name_short
+        description: The short name of the month
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - Jan
+                - Feb
+                - Mar
+                - Apr
+                - May
+                - Jun
+                - Jul
+                - Aug
+                - Sep
+                - Oct
+                - Nov
+                - Dec
+      - name: day_of_month
+        description: The day of the month
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 1
+              max_value: 31
+      - name: day_of_year
+        description: The day of the year
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 1
+              max_value: 366
+      - name: week_of_year
+        description: The week of the year
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0
+              max_value: 53
 
   - name: dim_time
     description: A dimension table of time
