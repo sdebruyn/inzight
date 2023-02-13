@@ -377,6 +377,27 @@ models:
                 - afternoon
                 - evening
                 - night
+      - name: date_day
+        description: The key date for this dimension
+        tests:
+          - not_null
+          - unique
+          - dbt_expectations.expect_column_values_to_be_increasing
+      - name: prior_date_day
+        description: One day before the date_day
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_increasing
+      - name: next_date_day
+        description: One day after the date_day
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_increasing
+      - name: prior_year_date_day
+        description: One year before the date_day
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_increasing
 
   - name: fct_electricity
     description: Electricity usage data coming from Fluvius, by quarter
