@@ -30,6 +30,10 @@ models:
         description: Peak moment of the month
         tests:
           - not_null
+      - name: month_peak_timestamp_end
+        description: End of the peak moment of the month
+        tests:
+          - not_null
       - name: month_peak_date
         description: Peak moment of the month as date
         tests:

@@ -10,6 +10,11 @@
       "formatTag": "kwh3",
       "formatCode": "#,##0.000\" kWh\"",
       "valueType": "number"
+    },
+    {
+      "formatTag": "hm",
+      "formatCode": "H:MM",
+      "valueType": "date"
     }
   ]
 }

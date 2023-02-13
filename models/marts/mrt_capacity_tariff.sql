@@ -1,6 +1,7 @@
 with usage_data as (
     select
         from_timestamp,
+        to_timestamp,
         usage
     from {{ ref('int_electricity') }}
 ),
@@ -10,6 +11,7 @@ components as (
         month(u.from_timestamp) as month,
         year(u.from_timestamp) as year,
         u.from_timestamp,
+        u.to_timestamp,
         u.usage * 4 as quarter_power,
         dd.*
     from usage_data u
@@ -34,6 +36,7 @@ with_avg as (
         d.month_name_short as month_name_short,
         d.month_start_date as month_start_date,
         d.from_timestamp as month_peak_timestamp,
+        d.to_timestamp as month_peak_timestamp_end,
         d.from_timestamp::date as month_peak_date,
         p.month_peak as month_peak_value,
         avg(p.month_peak) over (rows between 11 preceding and current row) as month_peak_12month_avg,
