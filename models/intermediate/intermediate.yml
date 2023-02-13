@@ -137,6 +137,62 @@ models:
           - dbt_expectations.expect_column_values_to_be_between:
               min_value: 1
               max_value: 12
+      - name: week_start_date
+        description: The start date of the week
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_distinct_count_to_be_less_than:
+              value: 55
+              group_by:
+                - year_number
+          - dbt_expectations.expect_column_distinct_count_to_be_greater_than:
+              value: 52
+              group_by:
+                - year_number
+      - name: week_end_date
+        description: The end date of the week
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_distinct_count_to_be_less_than:
+              value: 55
+              group_by:
+                - year_number
+          - dbt_expectations.expect_column_distinct_count_to_be_greater_than:
+              value: 52
+              group_by:
+                - year_number
+      - name: month_start_date
+        description: The start date of the month
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_distinct_count_to_equal:
+              value: 12
+              group_by:
+                - year_number
+      - name: month_end_date
+        description: The end date of the month
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_distinct_count_to_equal:
+              value: 12
+              group_by:
+                - year_number
+      - name: quarter_start_date
+        description: The start date of the quarter
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_distinct_count_to_equal:
+              value: 4
+              group_by:
+                - year_number
+      - name: quarter_end_date
+        description: The end date of the quarter
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_distinct_count_to_equal:
+              value: 4
+              group_by:
+                - year_number
 
 
   - name: dim_time
