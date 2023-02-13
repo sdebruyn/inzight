@@ -1,3 +1,3 @@
 ﻿Van Datum;Van Tijdstip;Tot Datum;Tot Tijdstip;EAN;Meter;Metertype;Register;Volume;Eenheid;Validatiestatus
 01-01-2020;00:00:00;01-01-2020;00:15:00;="000000000000000000";1SAG0000000000;Digitale Meter;Afname Nacht;0,001;kWh;Gevalideerd
-02-01-2020;00:00:00;02-01-2020;00:15:00;="000000000000000000";1SAG0000000000;Digitale Meter;Afname Nacht;0,001;kWh;Gevalideerd
+02-01-2020;00:00:00;02-01-2020;00:15:00;="000000000000000000";1SAG0000000000;Digitale Meter;Afname Nacht;1,234;kWh;Gevalideerd
