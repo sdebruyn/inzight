@@ -15,6 +15,11 @@
       "formatTag": "hm",
       "formatCode": "H:MM",
       "valueType": "date"
+    },
+    {
+      "formatTag": "days",
+      "formatCode": "dddd d",
+      "valueType": "date"
     }
   ]
 }
