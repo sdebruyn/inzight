@@ -35,7 +35,11 @@ models:
                 - injectie nacht
                 - injectie dag
       - name: volume_in_kwh
-        description: Volume of the register in kWh
+        description: Volume of the register in kW per 15 minutes
+        tests:
+          - dbt_expectations.expect_column_max_to_be_between:
+              min_value: 0.25
+              max_value: 6.9
       - name: validation_status_txt
         description: Validation status of the data as text
         tests:
