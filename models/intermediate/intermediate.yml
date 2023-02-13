@@ -81,6 +81,20 @@ models:
                 - Friday
                 - Saturday
                 - Sunday
+      - name: day_of_week
+        description: The day of the week
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 1
+              max_value: 7
+      - name: day_of_week_iso
+        description: The day of the week according to ISO 8601
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 1
+              max_value: 7
       - name: day_of_year
         description: The day of the year
         tests:
@@ -103,14 +117,14 @@ models:
               min_value: 0
               max_value: 53
       - name: iso_week_of_year
-        description: The ISO week of the year
+        description: The ISO week of the year as defined by ISO 8601
         tests:
           - not_null
           - dbt_expectations.expect_column_values_to_be_between:
               min_value: 1
               max_value: 53
       - name: prior_year_iso_week_of_year
-        description: The ISO week of the year in the prior year
+        description: The ISO week of the year in the prior year as per ISO 8601
         tests:
           - not_null
           - dbt_expectations.expect_column_values_to_be_between:
