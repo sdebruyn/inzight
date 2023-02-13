@@ -55,6 +55,32 @@ models:
           - dbt_expectations.expect_column_values_to_be_between:
               min_value: 1
               max_value: 31
+      - name: day_of_week_name_short
+        description: The short name of the day of the week
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - Mon
+                - Tue
+                - Wed
+                - Thu
+                - Fri
+                - Sat
+                - Sun
+      - name: day_of_week_name
+        description: The name of the day of the week
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - Monday
+                - Tuesday
+                - Wednesday
+                - Thursday
+                - Friday
+                - Saturday
+                - Sunday
       - name: day_of_year
         description: The day of the year
         tests:
@@ -69,8 +95,22 @@ models:
           - dbt_expectations.expect_column_values_to_be_between:
               min_value: 0
               max_value: 53
+      - name: prior_year_week_of_year
+        description: The week of the year in the prior year
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0
+              max_value: 53
       - name: iso_week_of_year
         description: The ISO week of the year
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 1
+              max_value: 53
+      - name: prior_year_iso_week_of_year
+        description: The ISO week of the year in the prior year
         tests:
           - not_null
           - dbt_expectations.expect_column_values_to_be_between:
