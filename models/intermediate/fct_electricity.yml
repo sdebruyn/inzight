@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: int_electricity
+  - name: fct_electricity
     description: Electricity usage data coming from Fluvius, by quarter
     columns:
       - name: from_timestamp

@@ -3,7 +3,7 @@ with usage_data as (
         from_timestamp,
         to_timestamp,
         usage
-    from {{ ref('int_electricity') }}
+    from {{ ref('fct_electricity') }}
 ),
 
 components as (

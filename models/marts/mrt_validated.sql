@@ -3,7 +3,7 @@ with usage_data as (
         usage,
         injection,
         validated
-    from {{ ref('int_electricity') }}
+    from {{ ref('fct_electricity') }}
 ),
 
 final as (
