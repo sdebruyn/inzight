@@ -161,6 +161,54 @@ models:
               value: 52
               group_by:
                 - year_number
+      - name: prior_year_week_start_date
+        description: The start date of the week in the prior year
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_distinct_count_to_be_less_than:
+              value: 55
+              group_by:
+                - year_number
+          - dbt_expectations.expect_column_distinct_count_to_be_greater_than:
+              value: 52
+              group_by:
+                - year_number
+      - name: prior_year_week_end_date
+        description: The end date of the week in the prior year
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_distinct_count_to_be_less_than:
+              value: 55
+              group_by:
+                - year_number
+          - dbt_expectations.expect_column_distinct_count_to_be_greater_than:
+              value: 52
+              group_by:
+                - year_number
+      - name: iso_week_start_date
+        description: The start date of the ISO week as per ISO 8601
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_distinct_count_to_be_less_than:
+              value: 55
+              group_by:
+                - year_number
+          - dbt_expectations.expect_column_distinct_count_to_be_greater_than:
+              value: 52
+              group_by:
+                - year_number
+      - name: iso_week_end_date
+        description: The end date of the ISO week as per ISO 8601
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_distinct_count_to_be_less_than:
+              value: 55
+              group_by:
+                - year_number
+          - dbt_expectations.expect_column_distinct_count_to_be_greater_than:
+              value: 52
+              group_by:
+                - year_number
       - name: month_start_date
         description: The start date of the month
         tests:
@@ -171,6 +219,22 @@ models:
                 - year_number
       - name: month_end_date
         description: The end date of the month
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_distinct_count_to_equal:
+              value: 12
+              group_by:
+                - year_number
+      - name: prior_year_month_start_date
+        description: The start date of the month in the prior year
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_distinct_count_to_equal:
+              value: 12
+              group_by:
+                - year_number
+      - name: prior_year_month_end_date
+        description: The end date of the month in the prior year
         tests:
           - not_null
           - dbt_expectations.expect_column_distinct_count_to_equal:
