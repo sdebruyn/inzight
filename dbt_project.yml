@@ -4,6 +4,9 @@ config-version: 2
 
 profile: 'inzight'
 
+vars:
+  "dbt_date:time_zone": "Europe/Brussels"
+
 dispatch:
   - macro_namespace: dbt_utils
     search_order: [dbt_duckdb_utils, dbt_utils]
