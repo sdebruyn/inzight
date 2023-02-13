@@ -257,6 +257,33 @@ models:
               value: 4
               group_by:
                 - year_number
+      - name: year_start_date
+        description: The start date of the year
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_distinct_count_to_equal:
+              value: 1
+              group_by:
+                - year_number
+      - name: year_end_date
+        description: The end date of the year
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_distinct_count_to_equal:
+              value: 1
+              group_by:
+                - year_number
+      - name: quarter_of_year
+        description: The quarter of the year
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 1
+              max_value: 4
+      - name: year_number
+        description: The year
+        tests:
+          - not_null
 
 
   - name: dim_time
