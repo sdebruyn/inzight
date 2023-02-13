@@ -68,7 +68,7 @@ models:
                 - AM
                 - PM
       - name: part_of_day
-        description: The part of the day as morning, afternoon, evening or night
+        description: '{{ doc("part_of_day") }}'
         tests:
           - not_null
           - accepted_values:
